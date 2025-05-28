@@ -1,0 +1,60 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Full Stack Developer",
+      "type": "Full-Time",
+      "location": "Karur, Tamil Nadu",
+      "description": "Develop and maintain web applications using Node.js, React, and MongoDB. Collaborate with cross-functional teams to deliver high-quality software solutions.",
+      "salary": "₹6L - ₹8L per annum",
+      "company": {
+        "name": "Tech Innovators Pvt Ltd",
+        "description": "A leading software development company specializing in custom web and mobile applications.",
+        "contactEmail": "hr@techinnovators.com",
+        "contactPhone": "+91-4324-123456"
+      }
+    },
+    {
+      "id": "2",
+      "title": "React Developer",
+      "type": "Full-Time",
+      "location": "Namakkal, Tamil Nadu",
+      "description": "Build responsive user interfaces using React.js. Work closely with backend developers to integrate APIs and ensure seamless user experiences.",
+      "salary": "₹5L - ₹7L per annum",
+      "company": {
+        "name": "Innovative Solutions",
+        "description": "A dynamic tech company focused on delivering innovative software solutions to clients worldwide.",
+        "contactEmail": "careers@innovativesolutions.com",
+        "contactPhone": "+91-4286-654321"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Python Developer",
+      "type": "Full-Time",
+      "location": "Rasipuram, Tamil Nadu",
+      "description": "Develop backend services and APIs using Python and Django. Ensure code quality and maintainability through unit testing and code reviews.",
+      "salary": "₹4.5L - ₹6.5L per annum",
+      "company": {
+        "name": "Tech Solutions Ltd",
+        "description": "A reputed software development firm providing end-to-end IT solutions to businesses.",
+        "contactEmail": "jobs@techsolutions.com",
+        "contactPhone": "+91-4287-789012"
+      }
+    },
+    {
+      "id": "4",
+      "title": "Java Developer",
+      "type": "Full-Time",
+      "location": "Salem, Tamil Nadu",
+      "description": "Design and implement Java-based applications. Work with databases like MySQL and PostgreSQL to manage data storage and retrieval.",
+      "salary": "₹5L - ₹7L per annum",
+      "company": {
+        "name": "Salem Technologies",
+        "description": "A leading IT services company offering software development and consulting services.",
+        "contactEmail": "recruitment@salemtechnologies.com",
+        "contactPhone": "+91-427-2345678"
+      }
+    }
+  ]
+}
