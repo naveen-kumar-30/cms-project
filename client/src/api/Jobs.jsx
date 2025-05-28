@@ -24,3 +24,4 @@ export const updateJob = async (job) => {
     body: JSON.stringify(job),
   });
 };
+console.log('Is production?', import.meta.env.PROD);
