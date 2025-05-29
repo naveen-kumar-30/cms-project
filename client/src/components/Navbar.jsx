@@ -31,8 +31,10 @@ const Navbar = () => {
             </NavLink>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
-               
                 <NavLink to="/" className={linkclass}>
+                  About
+                </NavLink>
+                <NavLink to="/home" className={linkclass}>
                   Home
                 </NavLink>
                 <NavLink to="/jobs" className={linkclass}>
@@ -40,9 +42,6 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink to="/add-job" className={linkclass}>
                   Add Job
-                </NavLink>
-                 <NavLink to="/about" className={linkclass}>
-                  About
                 </NavLink>
                 {/* Logout button styled like NavLinks */}
                 <button
