@@ -1,5 +1,4 @@
-// src/pages/SignInPage.jsx
-
+import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { Mail, Lock } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
@@ -108,11 +107,14 @@ const SignInPage = () => {
 
           {/* Sign Up Link */}
           <p className="text-sm text-center text-gray-500">
-            Don’t have an account?{" "}
-            <a href="#" className="text-indigo-600 hover:underline">
-              Sign up
-            </a>
-          </p>
+                        Already have an account?{" "}
+                        <NavLink
+                            to="/sign-up"
+                            className="text-indigo-600 hover:underline"
+                        >
+                            Sign Up
+                        </NavLink>
+                    </p>
         </div>
       </div>
     </div>
