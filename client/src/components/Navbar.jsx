@@ -28,11 +28,6 @@ const Navbar = ( ) => {
           <div className="md:ml-auto">
             <div className="flex space-x-2">
               <NavLink
-                to="/sign-in"
-                className= {linkclass}
-                >Sign In
-                </NavLink>
-              <NavLink
                 to="/"
                 className= {linkclass}
                 >About
