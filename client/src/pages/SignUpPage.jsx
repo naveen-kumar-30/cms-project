@@ -62,7 +62,7 @@ const SignUpPage = () => {
         />
       </div>
 
-      <div className="flex w-full md:w-1/2 items-start justify-start p-6">
+      <div className="flex w-full md:w-1/2 items-center flex-start justify-start p-6">
         <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-8 space-y-6">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-800">Create Account</h1>
