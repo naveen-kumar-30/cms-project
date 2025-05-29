@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Lock, User } from "lucide-react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { NavLink, useNavigate } from "react-router-dom";
 import ngLogo from "../assets/images/ng-logo.png";
 
@@ -10,15 +10,9 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const controls = useAnimation();
-  const navigate = useNavigate();
+  const [animatePage, setAnimatePage] = useState(false);
 
-  const handleImageClick = () => {
-    controls.start({
-      scale: [1, 1.2, 1],
-      transition: { duration: 0.5, ease: "easeInOut" },
-    });
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,34 +25,39 @@ const SignUpPage = () => {
       return;
     }
 
-    // Get existing users from localStorage
     const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
-
-    // Check if email already registered
     if (existingUsers.find((user) => user.email === email)) {
       setError("Email already registered.");
       return;
     }
 
-    // Save new user to localStorage
     const newUser = { name, email, password };
     existingUsers.push(newUser);
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
     setError("");
-    alert("Registration successful! Please sign in.");
-    navigate("/sign-in"); // redirect to sign-in after signup
+    setAnimatePage(true); // Start page animation
+    setTimeout(() => {
+      navigate("/sign-in"); // Navigate after 2 seconds
+    }, 1000);
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <motion.div
+      initial={{ y: 0, opacity: 1 }}
+      animate={
+        animatePage
+          ? { y: -800, opacity: 0, scale: 1.05 }
+          : { y: 0, opacity: 1 }
+      }
+   transition={{ duration: 1.5, ease: "easeOut" }}
+      className="flex min-h-screen bg-gray-50"
+    >
       <div className="hidden md:flex w-1/2 items-center justify-center">
-        <motion.img
-          onClick={handleImageClick}
-          animate={controls}
+        <img
           src={ngLogo}
           alt="NG Logo"
-          className="max-w-md h-auto object-contain cursor-pointer drop-shadow-md"
+          className="max-w-md h-auto object-contain drop-shadow-md"
         />
       </div>
 
@@ -144,7 +143,7 @@ const SignUpPage = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

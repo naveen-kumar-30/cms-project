@@ -8,27 +8,28 @@ const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [animatePage, setAnimatePage] = useState(false);
   const controls = useAnimation();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/home";
+  const from = location.state?.from?.pathname || "/";
 
   const handleImageClick = () => {
     controls.start({
       scale: [1, 1.2, 1],
-      transition: { duration: 0.5, ease: "easeInOut" },
+      transition: { duration: 1.5, ease: "easeInOut" },
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!email || !password) {
       setError("Please fill in all fields.");
       return;
     }
 
-    // Retrieve users from localStorage
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const user = users.find((u) => u.email === email && u.password === password);
 
@@ -37,15 +38,25 @@ const SignInPage = () => {
       return;
     }
 
-    // Store logged-in user in localStorage
     localStorage.setItem("authUser", JSON.stringify(user));
-
     setError("");
-    navigate(from, { replace: true });
+    
+    // Trigger exit animation
+    setAnimatePage(true);
+
+    // Wait animation duration, then navigate
+    setTimeout(() => {
+      navigate(from, { replace: true });
+    }, 1300); // duration matches animation below
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <motion.div
+      initial={{ y: 800, opacity: 0 }}
+      animate={animatePage ? { y: -800, opacity: 0, scale: 1.05 } : { y: 0, opacity: 1 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      className="flex min-h-screen bg-gray-50"
+    >
       <div className="hidden md:flex w-1/2 items-center justify-center">
         <motion.img
           onClick={handleImageClick}
@@ -107,6 +118,7 @@ const SignInPage = () => {
             <button
               type="submit"
               className="w-full bg-indigo-600 text-white py-2 rounded-xl hover:bg-indigo-700 transition duration-300"
+              disabled={animatePage} // disable button during animation to prevent double submit
             >
               Sign In
             </button>
@@ -120,7 +132,7 @@ const SignInPage = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
