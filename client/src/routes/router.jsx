@@ -20,8 +20,8 @@ const router = createBrowserRouter(
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route index element={<AboutPage />} />
+          <Route path="home" element={<HomePage />} />
           <Route path="jobs" element={<JobPages />} />
           <Route path="add-job" element={<AddJobPage addJobSubmit={addJob} />} />
           <Route
